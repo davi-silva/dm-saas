@@ -84,7 +84,7 @@ describe("Signer", () => {
       message: "Hello, world!",
     });
     expect(axios.post).toHaveBeenCalledWith(
-      "http://localhost:3001/verify-signature",
+      "http://localhost:5000/verify-signature",
       {
         message: "Hello, world!",
         signature: "mocked_signature",

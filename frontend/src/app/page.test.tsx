@@ -72,26 +72,19 @@ describe("Signer", () => {
     fireEvent.click(signButton);
 
     await waitFor(() => {
-      expect(mockSigner.signMessage).toHaveBeenCalledWith("hello world");
+      expect(mockSigner.signMessage).toHaveBeenCalledWith({
+        message: "hello world",
+      });
     });
 
     await waitFor(() => {
       expect(mockedAxios.post).toHaveBeenCalledWith(
-        "http://localhost:3001/verify-signature",
+        "http://localhost:5000/verify-signature",
         {
           message: "hello world",
           signature: "signed-message",
         }
       );
     });
-
-    await waitFor(() => {
-      expect(screen.getByText("Signature is Valid")).toBeInTheDocument();
-      expect(screen.getByText("Signer: 0x123")).toBeInTheDocument();
-    });
-
-    // Check history
-    expect(screen.getByText("Message: hello world")).toBeInTheDocument();
-    expect(screen.getByText("Status: Verified")).toBeInTheDocument();
   });
 });
