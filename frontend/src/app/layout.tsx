@@ -4,7 +4,7 @@ import "./globals.css";
 
 import { DynamicContextProvider } from "@dynamic-labs/sdk-react-core";
 import { EthereumWalletConnectors } from "@dynamic-labs/ethereum";
-// import { evmNetworks } from "@dynamic-labs/ethereum";
+import { DYNAMIC_ENV_ID } from "@/constants";
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -28,7 +28,7 @@ export default function RootLayout({
       >
         <DynamicContextProvider
           settings={{
-            environmentId: process.env.DYNAMIC_ENV_ID as string,
+            environmentId: DYNAMIC_ENV_ID,
             walletConnectors: [EthereumWalletConnectors],
           }}
         >

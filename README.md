@@ -113,15 +113,11 @@ The frontend application will run on `http://localhost:3000`.
 
 - **In-memory Session State (Backend)**: The backend uses in-memory session state (no database) for simplicity, as per requirements. In a production environment, a persistent storage solution (e.g., PostgreSQL, MongoDB, Redis) would be necessary.
 - **Limited Error Handling (Frontend)**: While basic error handling is present, more comprehensive error states and user feedback could be implemented (e.g., toast notifications for signing/verification failures).
-- **Hardcoded Backend URL**: The frontend currently uses a hardcoded `http://localhost:3001` for the backend API. This would need to be configurable via environment variables for different deployment environments.
-- **No Custom Wallet UI**: The current implementation leverages Dynamic.xyz's headless features to manage the wallet interactions, but a custom-designed wallet interface could enhance the user experience further.
 
 ### Potential Improvements
 
 - **Advanced UI/UX**: Further refinement of the UI with animations, better loading indicators, and more detailed success/error messages.
 - **Multi-factor Authentication (MFA)**: Integrate Dynamic.xyz's headless MFA features to secure user accounts (Bonus task).
-- **Deployment**: Provide scripts and configurations for deploying the frontend (e.g., Vercel) and backend (e.g., Render, AWS EC2/Lambda).
-- **More Robust Testing**: Expand test coverage, especially for edge cases and integration scenarios on the frontend.
 - **User Roles/Permissions**: Implement different user roles and permissions if the application were to grow in complexity.
 - **Message Encryption**: Add functionality to encrypt messages before signing them for enhanced privacy.
 
