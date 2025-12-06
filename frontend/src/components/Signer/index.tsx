@@ -2,21 +2,11 @@
 
 import { useState, useEffect } from "react";
 import { useDynamicContext } from "@dynamic-labs/sdk-react-core";
-import axios from "axios";
 
-type VerificationResult = {
-  isValid: boolean;
-  signer?: string;
-  originalMessage?: string;
-  error?: string;
-};
+import { verifySignature } from "@/services";
 
-type HistoryItem = {
-  message: string;
-  signature: string;
-  isValid: boolean;
-  signer?: string;
-};
+import type { VerificationResult } from "@/services/message/types";
+import type { HistoryItem } from "./types";
 
 const Signer = () => {
   const { primaryWallet } = useDynamicContext();
@@ -71,34 +61,13 @@ const Signer = () => {
     }
   };
 
-  console.log("dfgdf");
-
-  const verifySignature = async (
-    message: string,
-    signature: string
-  ): Promise<VerificationResult> => {
-    try {
-      const response = await axios.post(
-        "http://localhost:5000/verify-signature",
-        {
-          message,
-          signature,
-        }
-      );
-      return response.data;
-    } catch (error) {
-      console.error("Error verifying signature:", error);
-      return { isValid: false, error: "Verification failed" };
-    }
-  };
-
   const clearHistory = () => {
     setHistory([]);
     localStorage.removeItem("signing_history");
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-4">
+    <div className="w-full max-w-2xl mx-auto">
       <div className="bg-gray-800 p-6 rounded-lg shadow-lg mb-6">
         <h2 className="text-xl font-semibold mb-4">Sign a New Message</h2>
         <textarea

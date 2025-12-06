@@ -28,7 +28,6 @@ export default function RootLayout({
       >
         <DynamicContextProvider
           settings={{
-            // Find your environment id at https://app.dynamic.xyz/dashboard/developer
             environmentId: process.env.DYNAMIC_ENV_ID as string,
             walletConnectors: [EthereumWalletConnectors],
           }}
