@@ -2,14 +2,10 @@
 
 import { useDynamicContext } from "@dynamic-labs/sdk-react-core";
 import Signer from "@/components/Signer";
+import { Login } from "@/components";
 
 export default function Home() {
-  const { handleLogOut, setShowAuthFlow, user, primaryWallet } =
-    useDynamicContext();
-
-  const handleLogin = () => {
-    setShowAuthFlow(true);
-  };
+  const { handleLogOut, user, primaryWallet } = useDynamicContext();
 
   if (user) {
     return (
@@ -43,18 +39,7 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-24">
-      <div className="w-full max-w-sm p-8 bg-gray-800 rounded-lg shadow-lg text-center">
-        <h1 className="text-2xl font-bold mb-6">Web3 Message Signer</h1>
-        <p className="mb-4 text-gray-400">
-          Log in with your email to sign and verify messages.
-        </p>
-        <button
-          onClick={handleLogin}
-          className="w-full px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
-        >
-          Log In
-        </button>
-      </div>
+      <Login />
     </main>
   );
 }

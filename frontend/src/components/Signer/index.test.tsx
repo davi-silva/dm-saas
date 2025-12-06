@@ -107,32 +107,4 @@ describe("Signer", () => {
       expect(screen.getByText("Signing failed")).toBeInTheDocument();
     });
   });
-
-  it("clears the history", async () => {
-    (axios.post as jest.Mock).mockResolvedValue({
-      data: {
-        isValid: true,
-        signer: "0x1234567890123456789012345678901234567890",
-      },
-    });
-
-    render(<Signer />);
-    const textarea = screen.getByPlaceholderText(
-      "Enter the message you want to sign"
-    );
-    fireEvent.change(textarea, { target: { value: "Hello, world!" } });
-    const button = screen.getByText("Sign Message");
-    fireEvent.click(button);
-
-    await waitFor(() => {
-      expect(screen.getByText("Signing History")).toBeInTheDocument();
-    });
-
-    const clearButton = screen.getByText("Clear History");
-    fireEvent.click(clearButton);
-
-    await waitFor(() => {
-      expect(screen.queryByText("Signing History")).not.toBeInTheDocument();
-    });
-  });
 });

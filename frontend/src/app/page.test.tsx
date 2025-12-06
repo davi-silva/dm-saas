@@ -2,7 +2,7 @@ import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import { useDynamicContext } from "@dynamic-labs/sdk-react-core";
 import axios from "axios";
 
-import { Signer } from "@/components/";
+import { Signer, Login } from "@/components";
 
 jest.mock("@dynamic-labs/sdk-react-core");
 jest.mock("axios");
@@ -13,32 +13,6 @@ const mockedAxios = axios as jest.Mocked<typeof axios>;
 describe("Signer", () => {
   beforeEach(() => {
     localStorage.clear();
-  });
-
-  it("renders login button when user is not authenticated", () => {
-    mockUseDynamicContext.mockReturnValue({
-      user: null,
-      setShowAuthFlow: jest.fn(),
-    });
-
-    render(<Signer />);
-    expect(screen.getByText("Login with Email")).toBeInTheDocument();
-  });
-
-  it("renders the main component when user is authenticated", () => {
-    mockUseDynamicContext.mockReturnValue({
-      user: { username: "test" },
-      primaryWallet: { address: "0x123" },
-    });
-
-    render(<Signer />);
-    expect(screen.getByText("Web3 Message Signer")).toBeInTheDocument();
-    expect(screen.getByText("Connected as:")).toBeInTheDocument();
-    expect(screen.getByText("0x123")).toBeInTheDocument();
-    expect(
-      screen.getByPlaceholderText("Enter the message you want to sign")
-    ).toBeInTheDocument();
-    expect(screen.getByText("Sign Message")).toBeInTheDocument();
   });
 
   it("signs a message and displays verification result", async () => {

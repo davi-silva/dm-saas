@@ -53,8 +53,7 @@ const Signer = () => {
       };
       setHistory([newHistoryItem, ...history]);
       setVerificationResult(result);
-    } catch (error) {
-      console.error("Error signing message:", error);
+    } catch (_error) {
       setVerificationResult({ isValid: false, error: "Signing failed" });
     } finally {
       setIsLoading(false);
@@ -118,6 +117,7 @@ const Signer = () => {
             <button
               onClick={clearHistory}
               className="text-sm text-gray-400 hover:text-white"
+              data-testid="clearButton"
             >
               Clear History
             </button>
