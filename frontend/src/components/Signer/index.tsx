@@ -35,7 +35,7 @@ const Signer = () => {
     setVerificationResult(null);
 
     try {
-      // @ts-expect-error getSigner() undefined
+      // @ts-ignore getSigner() undefined
       const signer = await primaryWallet.connector.getSigner();
       if (!signer) {
         throw new Error("Signer not found");

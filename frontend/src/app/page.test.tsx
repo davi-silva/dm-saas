@@ -2,7 +2,7 @@ import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import { useDynamicContext } from "@dynamic-labs/sdk-react-core";
 import axios from "axios";
 
-import { Signer, Login } from "@/components";
+import { Signer } from "@/components";
 
 jest.mock("@dynamic-labs/sdk-react-core");
 jest.mock("axios");
