@@ -117,16 +117,18 @@ The frontend application will run on `http://localhost:3000`.
 ### Potential Improvements
 
 - **Advanced UI/UX**: Further refinement of the UI with animations, better loading indicators, and more detailed success/error messages.
-- **Multi-factor Authentication (MFA)**: Integrate Dynamic.xyz's headless MFA features to secure user accounts (Bonus task).
 - **User Roles/Permissions**: Implement different user roles and permissions if the application were to grow in complexity.
 - **Message Encryption**: Add functionality to encrypt messages before signing them for enhanced privacy.
 
 ## Test Suite
 
 - **Backend**: Jest is used for unit and integration testing of the `/verify-signature` API endpoint.
-- **Frontend**: Jest and React Testing Library are configured for testing React components. (Note: Tests are currently configured but need to be run and passed.)
+- **Frontend**: Jest and React Testing Library are configured for testing React components.
 
-## Bonus Features (Not Implemented)
+## Bonus Features
 
-- **Headless Multi-factor Auth**: Integration of Dynamic.xyz's headless MFA to secure user accounts.
 - **Deployed Version**: A link to a deployed version of the application (e.g., Vercel for frontend, Render for backend).
+  - Backend (onrender.com)
+    - https://dm-saas.onrender.com/
+  - Frontend (vercel)
+    - https://dm-saas-psi.vercel.app/
