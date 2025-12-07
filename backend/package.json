@@ -13,7 +13,8 @@
     "cors": "2.8.5",
     "dotenv": "16.4.5",
     "ethers": "6.13.1",
-    "express": "4.19.2"
+    "express": "4.19.2",
+    "zod": "^4.1.13"
   },
   "devDependencies": {
     "@types/cors": "2.8.17",
